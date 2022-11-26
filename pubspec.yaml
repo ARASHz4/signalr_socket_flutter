@@ -1,6 +1,6 @@
 name: signalr_socket
 description: SignalR Socket for Flutter
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/ARASHz4/signalr_socket_flutter
 
 environment:

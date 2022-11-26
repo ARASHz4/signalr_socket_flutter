@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _signalrSocket = SignalrSocket(
+  SignalrSocket signalrSocket = SignalrSocket(
     url: 'https://signalr.socket.com',
     hubName: 'hubName',
     eventName: 'eventName',
@@ -40,14 +40,14 @@ class _MyAppState extends State<MyApp> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  _signalrSocket.connect();
+                  signalrSocket.connect();
                 },
                 child: const Text("Connect"),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  _signalrSocket.disconnect();
+                  signalrSocket.disconnect();
                 },
                 child: const Text("Disconnect"),
               ),
