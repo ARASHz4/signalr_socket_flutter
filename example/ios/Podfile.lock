@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (5.6.4)
+  - Flutter (1.0.0)
+  - signalr_socket (0.0.1):
+    - Alamofire (~> 5.6)
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - signalr_socket (from `.symlinks/plugins/signalr_socket/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  signalr_socket:
+    :path: ".symlinks/plugins/signalr_socket/ios"
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  signalr_socket: 7a5b5fa887fbc93fd979889f92132386b4f6709e
+
+PODFILE CHECKSUM: c4c93c5f6502fe2754f48404d3594bf779584011
+
+COCOAPODS: 1.11.3
