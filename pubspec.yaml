@@ -1,6 +1,6 @@
 name: signalr_socket
-description: SignalR Socket for Flutter
-version: 1.1.0
+description: A flutter plugin for aspx.net SignalR client for Android, iOS, macOS and Web
+version: 1.1.2
 homepage: https://github.com/ARASHz4/signalr_socket_flutter
 
 environment:

@@ -10,7 +10,7 @@ Note: This library is NOT compatible with ASP.NET Core SignalR
 
 ```yaml
 dependencies:
-  signalr_socket: ^1.1.0 #latest version
+  signalr_socket: ^1.1.2 #latest version
 ```
 
 Initialize SignalR Socket & connect to server.
@@ -53,7 +53,7 @@ If you want a HTTP url, then you need to add the following lines to the manifest
 
 ### Web Setup
 - Add some js files to your web project in 'web/signalR_js'
-- Download javascript files here https://github.com/ARASHz4/flutter_signalR_js/archive/refs/tags/1.0.0.zip
+- Download javascript files here https://github.com/ARASHz4/flutter_signalR_js/archive/refs/tags/2.4.3.zip
 - Add 3 files 'jquery.min.js', 'jquery.signalR-2.4.3.min.js' and 'socketConnection.js' in 'web/signalR_js' folder
 - Go to 'web/index.html' and add the following lines in head
 ```html
