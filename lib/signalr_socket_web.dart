@@ -2,8 +2,6 @@
 // of your plugin as a separate package, instead of inlining it in the same
 // package as the core of your plugin.
 // ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html show window;
-
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:js/js.dart';
 import 'package:signalr_socket/signalr_socket.dart';
@@ -34,14 +32,18 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
   }
 
   @override
-  connect({required String url, required String hubName, required String eventName, required Map<String, String> queryString}) async {
+  connect({
+    required String url,
+    required String hubName,
+    required String eventName,
+    required Map<String, String> queryString,
+  }) async {
     String queryStringString = "";
 
     queryString.forEach((key, value) {
       if (queryStringString.isEmpty) {
         queryStringString = "$key=$value";
-      }
-      else {
+      } else {
         queryStringString = "&$key=$value";
       }
     });
@@ -57,13 +59,6 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
   @override
   Future<bool> isConnected() async {
     return false;
-  }
-
-  /// Returns a [String] containing the version of the platform.
-  @override
-  Future<String?> getPlatformVersion() async {
-    final version = html.window.navigator.userAgent;
-    return version;
   }
 }
 

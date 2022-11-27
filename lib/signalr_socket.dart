@@ -21,7 +21,12 @@ class SignalrSocket {
   }
 
   connect() async {
-    SignalrSocketPlatform.instance.connect(url: url, hubName: hubName, eventName: eventName, queryString: queryString);
+    SignalrSocketPlatform.instance.connect(
+      url: url,
+      hubName: hubName,
+      eventName: eventName,
+      queryString: queryString,
+    );
   }
 
   disconnect() {
@@ -30,10 +35,6 @@ class SignalrSocket {
 
   Future<bool> isConnected() async {
     return SignalrSocketPlatform.instance.isConnected();
-  }
-
-  Future<String?> getPlatformVersion() {
-    return SignalrSocketPlatform.instance.getPlatformVersion();
   }
 }
 

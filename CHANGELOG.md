@@ -6,3 +6,6 @@
 
 ## 1.0.4
 - Improvement
+
+## 1.0.6
+- Fixed Bugs

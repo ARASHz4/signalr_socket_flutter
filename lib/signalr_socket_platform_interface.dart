@@ -25,20 +25,23 @@ abstract class SignalrSocketPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  connect({required String url, required String hubName, required String eventName, required Map<String, String> queryString}) async {
-    throw UnimplementedError('signalr socket connect has not been implemented.');
+  connect(
+      {required String url,
+      required String hubName,
+      required String eventName,
+      required Map<String, String> queryString}) async {
+    throw UnimplementedError(
+        'signalr socket connect has not been implemented.');
   }
 
   disconnect() {
-    throw UnimplementedError('signalr socket disconnect has not been implemented.');
+    throw UnimplementedError(
+        'signalr socket disconnect has not been implemented.');
   }
 
   Future<bool> isConnected() async {
-    throw UnimplementedError('signalr socket isConnected has not been implemented.');
-  }
-
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+    throw UnimplementedError(
+        'signalr socket isConnected has not been implemented.');
   }
 }
 

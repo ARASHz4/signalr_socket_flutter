@@ -18,7 +18,9 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await platform.getPlatformVersion(), '42');
-  });
+  platform.connect(url: 'https://signalr.socket.com',
+    hubName: 'hubName',
+    eventName: 'eventName',
+    queryString: {'key': 'value'},
+  );
 }
