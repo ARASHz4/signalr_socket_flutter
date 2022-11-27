@@ -18,3 +18,6 @@
 
 ## 1.1.2
 - Fixed Bugs
+- 
+## 1.1.4
+- Fixed Bugs
