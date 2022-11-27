@@ -3,3 +3,6 @@
 
 ## 1.0.2
 - Add Readme
+
+## 1.0.4
+- Improvement

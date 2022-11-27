@@ -43,7 +43,7 @@ abstract class SignalrSocketPlatform extends PlatformInterface {
 }
 
 class SignalrSocketCallBack {
-  updateStatus(ConnectionStatus connectionStatus) {
+  updateStatus(SignalrSocketConnectionStatus connectionStatus) {
     onUpdateStatus?.call(connectionStatus);
   }
 
@@ -51,6 +51,6 @@ class SignalrSocketCallBack {
     onNewMessage?.call(message);
   }
 
-  void Function(ConnectionStatus connectionStatus)? onUpdateStatus;
+  void Function(SignalrSocketConnectionStatus connectionStatus)? onUpdateStatus;
   void Function(dynamic message)? onNewMessage;
 }

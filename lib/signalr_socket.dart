@@ -1,12 +1,11 @@
 import 'signalr_socket_platform_interface.dart';
 
-
 class SignalrSocket {
   final String url;
   final String hubName;
   final String eventName;
   final Map<String, String> queryString;
-  final Function(ConnectionStatus) updateStatus;
+  final Function(SignalrSocketConnectionStatus) updateConnectionStatus;
   final Function(dynamic) newMessage;
 
   SignalrSocket({
@@ -14,10 +13,10 @@ class SignalrSocket {
     required this.hubName,
     required this.eventName,
     required this.queryString,
-    required this.updateStatus,
+    required this.updateConnectionStatus,
     required this.newMessage,
   }) {
-    SignalrSocketPlatform.instance.callBack.onUpdateStatus = updateStatus;
+    SignalrSocketPlatform.instance.callBack.onUpdateStatus = updateConnectionStatus;
     SignalrSocketPlatform.instance.callBack.onNewMessage = newMessage;
   }
 
@@ -38,7 +37,7 @@ class SignalrSocket {
   }
 }
 
-enum ConnectionStatus {
+enum SignalrSocketConnectionStatus {
   connected(0),
   connecting(1),
   disconnected(2),
@@ -47,7 +46,7 @@ enum ConnectionStatus {
   connectionSlow(5),
   connectingError(6);
 
-  const ConnectionStatus(this.value);
+  const SignalrSocketConnectionStatus(this.value);
 
   final int value;
 }

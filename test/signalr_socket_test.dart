@@ -46,7 +46,7 @@ void main() {
       hubName: 'hubName',
       eventName: "eventName",
       queryString: {'key': 'value'},
-      updateStatus: (status) {
+      updateConnectionStatus: (status) {
         print("signalr socket update connection status ${status.name}");
       },
       newMessage: (message) {

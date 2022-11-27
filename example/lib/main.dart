@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     hubName: 'hubName',
     eventName: 'eventName',
     queryString: {'key': 'value'},
-    updateStatus: (status) {
+    updateConnectionStatus: (status) {
       debugPrint("signalr socket update connection status ${status.name}");
     },
     newMessage: (message) {

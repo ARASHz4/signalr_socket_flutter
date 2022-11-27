@@ -17,7 +17,7 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
     signalrSocketUpdateStatusWeb = allowInterop((status) {
       if (status is int) {
         if (status <= 6) {
-          final connectionStatus = ConnectionStatus.values[status];
+          final connectionStatus = SignalrSocketConnectionStatus.values[status];
 
           SignalrSocketPlatform.instance.callBack.updateStatus(connectionStatus);
         }
