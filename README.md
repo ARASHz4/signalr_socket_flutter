@@ -1,5 +1,7 @@
 # signalr_socket
 
+[![pub package](https://img.shields.io/pub/v/signalr_socket.svg)](https://pub.dev/packages/signalr_socket)
+
 A flutter plugin for aspx.net SignalR client for Android, iOS, macOS and Web
 
 ## Getting Started
