@@ -23,37 +23,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // signalrSocket = SignalrSocket(
-    //   url: 'https://signalr.socket.com',
-    //   hubName: 'hubName',
-    //   eventName: 'eventName',
-    //   queryString: {'key': 'value'},
-    //   updateConnectionStatus: (connectionStatus) {
-    //     debugPrint("signalr socket update connection status ${connectionStatus.name}");
-    //
-    //     setState(() {
-    //       this.connectionStatus = connectionStatus;
-    //     });
-    //   },
-    //   newMessage: (message) {
-    //     debugPrint("signalr socket new message $message");
-    //
-    //     setState(() {
-    //       if (output.isEmpty) {
-    //         output = message;
-    //       }
-    //       else {
-    //         output += "\n $message";
-    //       }
-    //     });
-    //   },
-    // );
-
     signalrSocket = SignalrSocket(
-      url: "https://avl.opp.co.ir:8099/socket",
-      hubName: "avlHub",
-      eventName: "newPlace",
-      queryString: {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmN2EzZjMwMS03NGFlLTViNzQtZDI2Yy1kNWUwMGM0OGI2YzAiLCJpc3MiOiJodHRwOi8vb3BwLmNvLmlyLyIsImlhdCI6MTY2OTAzMDE0OSwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIwYmJmZGNkMi00ODExLTRiNWEtOWNiNS1iMDFmNWY1OGMzZjUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibmlndGM0IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbW9iaWxlcGhvbmUiOiIwOTAxMzEwODQ4NCIsImNvbXBhbnlJZCI6IjA0ZTIwMWEzLTNmY2ItNDNhZi1iYTAwLTU5ZTQzYzEzMGE4YiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkdQU0FkbWluIiwibmJmIjoxNjY5MDMwMTQ5LCJleHAiOjE3MDA1NjYxNDksImF1ZCI6IkFueSJ9.ldMkOd3yBsSvRhT3es3vnF6ri9EmN4GYXhz-sJCQlEo"},
+      url: "https://signalr.socket.com",
+      hubName: "hubName",
+      eventName: "eventName",
+      queryString: {'key': 'value'},
       updateConnectionStatus: (connectionStatus) {
         debugPrint("signalr socket update connection status ${connectionStatus.name}");
 
