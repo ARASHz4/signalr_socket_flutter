@@ -12,3 +12,6 @@
 - 
 ## 1.0.8
 - Fixed Bugs
+
+## 1.1.0
+- Fixed Bugs

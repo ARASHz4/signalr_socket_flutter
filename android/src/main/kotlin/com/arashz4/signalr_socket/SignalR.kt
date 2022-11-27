@@ -32,6 +32,8 @@ object SignalR {
 
             var isFirst = true
 
+            updateStatus(ConnectionStatus.Connecting.value)
+
             connection.connected {
                 Handler(Looper.getMainLooper()).post {
                     if (isFirst) {
@@ -68,7 +70,7 @@ object SignalR {
 
             connection.error {
                 Handler(Looper.getMainLooper()).post {
-                    updateStatus(ConnectionStatus.Error.value)
+                    updateStatus(ConnectionStatus.ConnectingError.value)
                 }
             }
 
@@ -104,9 +106,10 @@ object SignalR {
 
 enum class ConnectionStatus(val value: Int) {
     Connected(0),
-    Disconnected(1),
-    Reconnected(2),
-    Reconnecting(3),
-    ConnectionSlow(4),
-    Error(5)
+    Connecting(1),
+    Disconnected(2),
+    Reconnected(3),
+    Reconnecting(4),
+    ConnectionSlow(5),
+    ConnectingError(6)
 }

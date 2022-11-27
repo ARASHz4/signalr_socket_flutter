@@ -57,6 +57,8 @@ if (typeof $.hubConnection != 'undefined') {
             console.log('stoping connection ' + placeConnection.url + '...')
 
             placeConnection.stop()
+
+            window.connectionStatus(2)
         }
         else {
             console.log('placeConnection is undefined')
