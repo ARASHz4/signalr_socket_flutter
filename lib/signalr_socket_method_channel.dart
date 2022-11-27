@@ -43,9 +43,11 @@ class MethodChannelSignalrSocket extends SignalrSocketPlatform {
         case 'connectionStatus':
           if (call.arguments is int) {
             if (call.arguments <= 6) {
-              final connectionStatus = SignalrSocketConnectionStatus.values[call.arguments];
+              final connectionStatus =
+                  SignalrSocketConnectionStatus.values[call.arguments];
 
-              SignalrSocketPlatform.instance.callBack.updateStatus(connectionStatus);
+              SignalrSocketPlatform.instance.callBack
+                  .updateStatus(connectionStatus);
             }
           }
 

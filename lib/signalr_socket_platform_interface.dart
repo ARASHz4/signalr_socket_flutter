@@ -1,5 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:signalr_socket/signalr_socket.dart';
+
 import 'signalr_socket_method_channel.dart';
 
 abstract class SignalrSocketPlatform extends PlatformInterface {
@@ -25,11 +26,12 @@ abstract class SignalrSocketPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  connect(
-      {required String url,
-      required String hubName,
-      required String eventName,
-      required Map<String, String> queryString}) async {
+  connect({
+    required String url,
+    required String hubName,
+    required String eventName,
+    required Map<String, String> queryString,
+  }) async {
     throw UnimplementedError(
         'signalr socket connect has not been implemented.');
   }

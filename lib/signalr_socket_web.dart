@@ -17,7 +17,8 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
         if (status <= 6) {
           final connectionStatus = SignalrSocketConnectionStatus.values[status];
 
-          SignalrSocketPlatform.instance.callBack.updateStatus(connectionStatus);
+          SignalrSocketPlatform.instance.callBack
+              .updateStatus(connectionStatus);
         }
       }
     });
@@ -63,13 +64,15 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
 }
 
 @JS('connectSocket')
-external connectSignalrSocketWeb(dynamic url, dynamic hubName, dynamic eventName, dynamic queryString);
+external connectSignalrSocketWeb(
+    dynamic url, dynamic hubName, dynamic eventName, dynamic queryString);
 
 @JS('disconnectSocket')
 external disconnectSignalrSocketWeb();
 
 @JS('connectionStatus')
-external set signalrSocketUpdateStatusWeb(void Function(dynamic connectionStatus) f);
+external set signalrSocketUpdateStatusWeb(
+    void Function(dynamic connectionStatus) f);
 
 @JS('newMessage')
 external set signalrSocketNewMessageWeb(void Function(dynamic newMessage) f);

@@ -16,7 +16,8 @@ class SignalrSocket {
     required this.updateConnectionStatus,
     required this.newMessage,
   }) {
-    SignalrSocketPlatform.instance.callBack.onUpdateStatus = updateConnectionStatus;
+    SignalrSocketPlatform.instance.callBack.onUpdateStatus =
+        updateConnectionStatus;
     SignalrSocketPlatform.instance.callBack.onNewMessage = newMessage;
   }
 

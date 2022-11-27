@@ -18,7 +18,8 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  platform.connect(url: 'https://signalr.socket.com',
+  platform.connect(
+    url: 'https://signalr.socket.com',
     hubName: 'hubName',
     eventName: 'eventName',
     queryString: {'key': 'value'},

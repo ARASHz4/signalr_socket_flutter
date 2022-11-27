@@ -3,7 +3,9 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:signalr_socket/signalr_socket_method_channel.dart';
 import 'package:signalr_socket/signalr_socket_platform_interface.dart';
 
-class MockSignalrSocketPlatform with MockPlatformInterfaceMixin implements SignalrSocketPlatform {
+class MockSignalrSocketPlatform
+    with MockPlatformInterfaceMixin
+    implements SignalrSocketPlatform {
   @override
   connect({
     required String url,
