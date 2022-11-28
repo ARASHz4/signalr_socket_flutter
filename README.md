@@ -8,6 +8,12 @@ A flutter plugin for aspx.net SignalR client for Android, iOS, macOS and Web
 
 Note: This library is NOT compatible with ASP.NET Core SignalR
 
+## Platform Support
+
+| Android | iOS | MacOS | Web | Linux | Windows |
+| :-----: | :-: | :---: | :-: | :---: | :-----: |
+|   ✔️    | ✔️   |  ✔️  | ✔️  |     |      |
+
 ### Add dependency
 
 ```yaml
