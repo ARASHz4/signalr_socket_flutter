@@ -10,9 +10,9 @@ Note: This library is NOT compatible with ASP.NET Core SignalR
 
 ## Platform Support
 
-| Android | iOS | MacOS | Web | Linux | Windows |
-| :-----: | :-: | :---: | :-: | :---: | :-----: |
-|   ✔️    | ✔️   |  ✔️  | ✔️  |     |      |
+| Android | iOS | macOS | Web | Windows | Linux |
+| :-----: | :-: | :---: | :-: | :-----: | :---: |
+|   ✔️    | ✔️   |  ✔️  | ✔️  |      |     |
 
 ### Add dependency
 
