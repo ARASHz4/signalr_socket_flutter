@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:signalr_socket/signalr_socket.dart';
+
 import 'signalr_socket_platform_interface.dart';
 
 /// An implementation of [SignalrSocketPlatform] that uses method channels.
@@ -10,7 +11,12 @@ class MethodChannelSignalrSocket extends SignalrSocketPlatform {
   final methodChannel = const MethodChannel('signalr_socket');
 
   @override
-  connect({required String url, required String hubName, required String eventName, required Map<String, String> queryString}) async {
+  connect({
+    required String url,
+    required String hubName,
+    required String eventName,
+    required Map<String, String> queryString,
+  }) async {
     methodChannel.invokeMethod<bool>('connect', {
       'url': url,
       'hubName': hubName,
@@ -37,9 +43,11 @@ class MethodChannelSignalrSocket extends SignalrSocketPlatform {
         case 'connectionStatus':
           if (call.arguments is int) {
             if (call.arguments <= 6) {
-              final connectionStatus = ConnectionStatus.values[call.arguments];
+              final connectionStatus =
+                  SignalrSocketConnectionStatus.values[call.arguments];
 
-              SignalrSocketPlatform.instance.callBack.updateStatus(connectionStatus);
+              SignalrSocketPlatform.instance.callBack
+                  .updateStatus(connectionStatus);
             }
           }
 
@@ -52,11 +60,5 @@ class MethodChannelSignalrSocket extends SignalrSocketPlatform {
       }
       return Future.value();
     });
-  }
-
-  @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
   }
 }

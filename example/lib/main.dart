@@ -13,18 +13,33 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  SignalrSocket signalrSocket = SignalrSocket(
-    url: 'https://signalr.socket.com',
-    hubName: 'hubName',
-    eventName: 'eventName',
-    queryString: {'key': 'value'},
-    updateStatus: (status) {
-      debugPrint("signalr socket update connection status ${status.name}");
-    },
-    newMessage: (message) {
-      debugPrint("signalr socket new message $message");
-    },
-  );
+  SignalrSocketConnectionStatus connectionStatus = SignalrSocketConnectionStatus.disconnected;
+
+  late SignalrSocket signalrSocket;
+
+  List<String> outputs = [];
+
+  ScrollController outputScrollController = ScrollController();
+
+  @override
+  void initState() {
+    signalrSocket = SignalrSocket(
+      url: "https://signalr.socket.com",
+      hubName: "hubName",
+      eventName: "eventName",
+      queryString: {'key': 'value'},
+      updateConnectionStatus: (connectionStatus) {
+        debugPrint("signalr socket update connection status ${connectionStatus.name}");
+
+        setState(() {
+          this.connectionStatus = connectionStatus;
+        });
+      },
+      newMessage: newMessage,
+    );
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,28 +48,107 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('SignalR Socket Example'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ElevatedButton(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(connectionStatus.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+              ),
+            ),
+            Center(
+              child: ElevatedButton(
                 onPressed: () {
                   signalrSocket.connect();
                 },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 child: const Text("Connect"),
               ),
-              const SizedBox(height: 16),
-              ElevatedButton(
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: ElevatedButton(
                 onPressed: () {
                   signalrSocket.disconnect();
                 },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 child: const Text("Disconnect"),
               ),
-            ],
-          ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 16, top: 16),
+              child: Text("Output:"),
+            ),
+            Expanded(
+              child: Scrollbar(
+                controller: outputScrollController,
+                thumbVisibility: true,
+                child: ListView.builder(
+                  controller: outputScrollController,
+                  itemCount: outputs.length,
+                  itemBuilder: (context, index) {
+                    final output = outputs[index];
+
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(output),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      outputScrollController.animateTo(
+                        outputScrollController.position.minScrollExtent,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeOut,
+                      );
+                    },
+                    icon: const Icon(Icons.arrow_circle_up),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        outputs = [];
+                      });
+                    },
+                    icon: const Icon(Icons.clear_all),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      outputScrollController.animateTo(
+                        outputScrollController.position.maxScrollExtent,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeOut,
+                      );
+                    },
+                    icon: const Icon(Icons.arrow_circle_down),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
+  }
+
+  newMessage(dynamic message) {
+    setState(() {
+      outputs.add(message.toString());
+    });
   }
 }

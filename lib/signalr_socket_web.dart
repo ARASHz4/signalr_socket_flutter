@@ -2,8 +2,6 @@
 // of your plugin as a separate package, instead of inlining it in the same
 // package as the core of your plugin.
 // ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html show window;
-
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:js/js.dart';
 import 'package:signalr_socket/signalr_socket.dart';
@@ -17,9 +15,10 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
     signalrSocketUpdateStatusWeb = allowInterop((status) {
       if (status is int) {
         if (status <= 6) {
-          final connectionStatus = ConnectionStatus.values[status];
+          final connectionStatus = SignalrSocketConnectionStatus.values[status];
 
-          SignalrSocketPlatform.instance.callBack.updateStatus(connectionStatus);
+          SignalrSocketPlatform.instance.callBack
+              .updateStatus(connectionStatus);
         }
       }
     });
@@ -34,14 +33,18 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
   }
 
   @override
-  connect({required String url, required String hubName, required String eventName, required Map<String, String> queryString}) async {
+  connect({
+    required String url,
+    required String hubName,
+    required String eventName,
+    required Map<String, String> queryString,
+  }) async {
     String queryStringString = "";
 
     queryString.forEach((key, value) {
       if (queryStringString.isEmpty) {
         queryStringString = "$key=$value";
-      }
-      else {
+      } else {
         queryStringString = "&$key=$value";
       }
     });
@@ -58,23 +61,18 @@ class SignalrSocketWeb extends SignalrSocketPlatform {
   Future<bool> isConnected() async {
     return false;
   }
-
-  /// Returns a [String] containing the version of the platform.
-  @override
-  Future<String?> getPlatformVersion() async {
-    final version = html.window.navigator.userAgent;
-    return version;
-  }
 }
 
 @JS('connectSocket')
-external connectSignalrSocketWeb(dynamic url, dynamic hubName, dynamic eventName, dynamic queryString);
+external connectSignalrSocketWeb(
+    dynamic url, dynamic hubName, dynamic eventName, dynamic queryString);
 
 @JS('disconnectSocket')
 external disconnectSignalrSocketWeb();
 
 @JS('connectionStatus')
-external set signalrSocketUpdateStatusWeb(void Function(dynamic connectionStatus) f);
+external set signalrSocketUpdateStatusWeb(
+    void Function(dynamic connectionStatus) f);
 
 @JS('newMessage')
 external set signalrSocketNewMessageWeb(void Function(dynamic newMessage) f);

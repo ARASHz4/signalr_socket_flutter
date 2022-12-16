@@ -46,9 +46,8 @@ class SignalrSocketPlugin : FlutterPlugin, MethodCallHandler {
                 )
             }
             CallMethod.Disconnect.value -> {
-
                 signalR.disconnect {
-                    result.success(true)
+                    channel.invokeMethod("connectionStatus", ConnectionStatus.Disconnected.value)
                 }
             }
             CallMethod.IsConnected.value -> {
