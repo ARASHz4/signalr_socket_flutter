@@ -24,9 +24,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     signalrSocket = SignalrSocket(
-      url: "https://signalr.socket.com",
-      hubName: "hubName",
-      eventName: "eventName",
+      url: "http://localhost:8080/signalr",
+      hubName: "SignalrSocketHub",
+      eventName: "SignalrSocketEvent",
       queryString: {'key': 'value'},
       updateConnectionStatus: (connectionStatus) {
         debugPrint("signalr socket update connection status ${connectionStatus.name}");
