@@ -9,3 +9,6 @@
 *.podspec linguist-detectable=false
 *.m linguist-detectable=false
 *.kt linguist-detectable=false
+Podfile linguist-detectable=false
+*.js linguist-detectable=false
+*.cs linguist-detectable=false
