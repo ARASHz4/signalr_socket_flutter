@@ -1,11 +1,14 @@
 PODS:
   - Alamofire (5.6.4)
+  - flutter_js (0.0.1):
+    - FlutterMacOS
   - FlutterMacOS (1.0.0)
   - signalr_socket (1.0.0):
     - Alamofire (~> 5.6)
     - FlutterMacOS
 
 DEPENDENCIES:
+  - flutter_js (from `Flutter/ephemeral/.symlinks/plugins/flutter_js/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - signalr_socket (from `Flutter/ephemeral/.symlinks/plugins/signalr_socket/macos`)
 
@@ -14,6 +17,8 @@ SPEC REPOS:
     - Alamofire
 
 EXTERNAL SOURCES:
+  flutter_js:
+    :path: Flutter/ephemeral/.symlinks/plugins/flutter_js/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
   signalr_socket:
@@ -21,6 +26,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  flutter_js: c664361655af1d8fc24e278c7d086e9cbe0d68bc
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   signalr_socket: 5a12ef0962244a5d915025a82bf47de80eee8821
 

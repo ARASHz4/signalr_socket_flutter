@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
 
   js: ^0.6.4
+  flutter_js: ^0.6.0
 
   flutter_web_plugins:
     sdk: flutter
@@ -35,3 +36,12 @@ flutter:
       web:
         pluginClass: SignalrSocketWeb
         fileName: signalr_socket_web.dart
+      windows:
+        pluginClass: SignalrSocketPluginCApi
+      linux:
+        pluginClass: SignalrSocketPlugin
+
+  assets:
+    - packages/signalr_socket/js/jquery.min.js
+    - packages/signalr_socket/js/jquery.signalR-2.4.3.min.js
+    - packages/signalr_socket/js/socketConnection.js
