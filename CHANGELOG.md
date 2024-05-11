@@ -21,3 +21,6 @@
 
 ## 1.1.4
 - Fixed Bugs
+
+## 1.1.6
+- Update Dependencies

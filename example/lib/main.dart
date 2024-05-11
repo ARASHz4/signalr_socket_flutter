@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   signalrSocket.connect();
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green, foregroundColor: Colors.white),
                 child: const Text("Connect"),
               ),
             ),
@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   signalrSocket.disconnect();
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red, foregroundColor: Colors.white),
                 child: const Text("Disconnect"),
               ),
             ),

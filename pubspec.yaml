@@ -1,26 +1,26 @@
 name: signalr_socket
-description: A flutter plugin for aspx.net SignalR client for Android, iOS, macOS and Web
-version: 1.1.4
+description: "A flutter plugin for aspx.net SignalR client for Android, iOS, macOS and Web"
+version: 1.1.6
 homepage: https://github.com/ARASHz4/signalr_socket_flutter
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
-  flutter: ">=2.5.0"
+  sdk: '>=3.3.1 <4.0.0'
+  flutter: '>=3.3.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
-  js: ^0.6.4
+  js: ^0.7.1
 
   flutter_web_plugins:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   plugin:

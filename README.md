@@ -18,7 +18,7 @@ Note: This library is NOT compatible with ASP.NET Core SignalR
 
 ```yaml
 dependencies:
-  signalr_socket: ^1.1.4 #latest version
+  signalr_socket: ^1.1.6 #latest version
 ```
 
 Initialize SignalR Socket & connect to server.
